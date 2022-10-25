@@ -3,6 +3,8 @@ package com.example.userbackend.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -36,5 +38,7 @@ public class User {
     private String password;
 
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Image> images = new LinkedHashSet<>();
 
 }

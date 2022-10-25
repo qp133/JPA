@@ -23,12 +23,16 @@ public class Image {
     @Column(name = "uploaded_at")
     private LocalDateTime uploadedAt;
 
-    @Lob
+    @Lob        //Large Object
     @Column(name = "data")
     private byte[] data;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    private User users;
 
 }
